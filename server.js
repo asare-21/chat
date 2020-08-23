@@ -17,6 +17,7 @@ io.on("connection", (socket) => {
   console.log("A user Connected");
   socket.on("message", (msg) => {
     socket.broadcast.emit("message", msg);
+    console.log(msg);
     new message({
       message: msg,
     }).save();
