@@ -5,10 +5,7 @@ const io = require("socket.io")(http);
 const mongoose = require("mongoose");
 const dev = app.get("env") == "production";
 require("dotenv").config();
-app.get("/", (request, response) => {
-  console.log(request.body);
-  response.send("Hello");
-});
+
 const messageSchema = new mongoose.Schema({
   message: "String",
 });
