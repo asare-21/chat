@@ -4,6 +4,8 @@ const http = require("http").createServer(app);
 const io = require("socket.io")(http);
 const mongoose = require("mongoose");
 const dev = app.get("env") == "production";
+const path = require("path");
+
 require("dotenv").config();
 
 const messageSchema = new mongoose.Schema({
