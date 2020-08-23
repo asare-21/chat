@@ -409,9 +409,10 @@ form.show {
 
 @media screen and (max-width: 480px) {
   .logo,
-  .chat {
+  .chat,
+  .conversation {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     border-radius: 0;
   }
 }

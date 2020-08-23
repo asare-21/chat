@@ -8,7 +8,9 @@ import {
   IoIosPaperPlane,
 } from "react-icons/io";
 import openSocket from "socket.io-client";
-const socket = openSocket("http://localhost:4000");
+const socket = openSocket(
+  "http://localhost:4000" || "https://chat-with-a-friend.herokuapp.com/Chat"
+);
 function Chat() {
   return (
     <div>
