@@ -23,8 +23,9 @@ function Home() {
             className="login"
             id="login"
             onClick={() => {
-              document.querySelector("form").classList.toggle("show");
-              document.querySelector("#login").classList.toggle("show");
+              // document.querySelector("form").classList.toggle("show");
+              // document.querySelector("#login").classList.toggle("show");
+              window.location = "/Chat";
             }}
           >
             <a href="#">Login</a>
