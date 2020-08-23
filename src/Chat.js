@@ -8,7 +8,9 @@ import {
   IoIosPaperPlane,
 } from "react-icons/io";
 import openSocket from "socket.io-client";
-const socket = openSocket(`http://${window.location.hostname}`);
+const socket = openSocket(`http://${window.location.hostname}`, {
+  secure: true,
+});
 console.log(window.location);
 function Chat() {
   return (
