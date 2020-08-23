@@ -8,7 +8,7 @@ import {
   IoIosPaperPlane,
 } from "react-icons/io";
 import openSocket from "socket.io-client";
-const socket = openSocket(`http://${window.location.hostname}`, {
+const socket = openSocket(`${window.location.href}`, {
   secure: true,
 });
 console.log(window.location);
