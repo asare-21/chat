@@ -10,6 +10,7 @@ const messageSchema = new mongoose.Schema({
   message: "String",
 });
 const message = mongoose.model("message", messageSchema);
+
 io.on("connection", (socket) => {
   console.log("A user Connected");
   socket.on("message", (msg) => {
