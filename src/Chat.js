@@ -9,7 +9,7 @@ import {
 } from "react-icons/io";
 import openSocket from "socket.io-client";
 const socket = openSocket(
-  `${window.location.protocol}//${window.location.hostname}`,
+  `${window.location.protocol}//${window.location.hostname}:4000`,
   {
     secure: true,
   }
@@ -92,7 +92,7 @@ const chatDeliver = () => {
   if (document.getElementById("message") !== null) {
     const message = document.getElementById("message").value;
 
-    console.log(message);
+    // console.log(message);
     const small = document.createElement("small");
     small.textContent = message;
     small.className = "mymessage";
@@ -112,7 +112,35 @@ function readMsg() {
       document.querySelector(".messages").append(small);
     }
   });
+  let newevent = [];
+  socket.on("users", (msg) => {
+    console.log(msg);
+    msg.forEach((result) => {
+      //   let id = result;
+      newevent.push(result);
+    });
+
+    if (newevent.length !== 0) {
+      console.log(newevent);
+      const user = localStorage.getItem("user");
+      newevent.forEach((event) => {
+        if (user !== event.phone) {
+          event.friends.forEach((friend) => {
+            socket.emit(friend.phone, "hello");
+            console.log(friend.phone);
+          });
+        }
+      });
+    } else {
+      console.log("Events are 0");
+    }
+  });
 }
-readMsg();
+socket.on("found", (found) => {
+  console.log(found);
+});
+
+// readMsg();
 setTimeout(chatDeliver, 1000);
+setTimeout(readMsg(), 1000);
 export default Chat;
