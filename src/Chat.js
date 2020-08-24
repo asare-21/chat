@@ -109,6 +109,8 @@ function readMsg() {
     small.textContent = msg;
     small.className = "small";
     if (msg !== "") {
+      var audio = new Audio("when.mp3");
+      audio.play();
       document.querySelector(".messages").append(small);
     }
   });
