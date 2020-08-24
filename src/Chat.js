@@ -103,13 +103,13 @@ const chatDeliver = () => {
     }
   }
 };
+var audio = new Audio("when.mp3");
 function readMsg() {
   socket.on("message", (msg) => {
     const small = document.createElement("small");
     small.textContent = msg;
     small.className = "small";
     if (msg !== "") {
-      var audio = new Audio("when.mp3");
       audio.play();
       document.querySelector(".messages").append(small);
     }
