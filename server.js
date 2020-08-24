@@ -37,9 +37,9 @@ io.on("connection", (socket) => {
       });
     });
     socket.on("users", (user) => {
-      console.log(user);
+      // console.log(user);
       User.findOne({ phone: user }).then((result) => {
-        console.log(result);
+        // console.log(result);
         socket.emit("found", result.phone);
       });
     });
@@ -47,6 +47,7 @@ io.on("connection", (socket) => {
       console.log("greater than 0");
       newEvent.forEach((event) => {
         socket.on(event, (message) => {
+          socket.emit(event, message);
           console.log(message);
         });
       });
@@ -60,7 +61,7 @@ io.on("connection", (socket) => {
     //   new User({
     //     name: "Joseph Asare",
     //     phone: "0202737487",
-    //     friends: {
+    //     friends: {git
     //       name: "Elizabeth Nsiah",
     //       phone: "0501658927",
     //     },

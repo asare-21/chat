@@ -96,13 +96,18 @@ const chatDeliver = () => {
     const small = document.createElement("small");
     small.textContent = message;
     small.className = "mymessage";
+
     if (message !== "") {
-      socket.emit("message", message);
+      friends.forEach((number) => {
+        socket.emit(number, message);
+      });
       document.querySelector(".messages").append(small);
       document.getElementById("message").value = "";
     }
   }
 };
+let count = 0;
+let friends = [];
 function readMsg() {
   socket.on("message", (msg) => {
     const small = document.createElement("small");
@@ -125,9 +130,11 @@ function readMsg() {
       const user = localStorage.getItem("user");
       newevent.forEach((event) => {
         if (user !== event.phone) {
+          count++;
           event.friends.forEach((friend) => {
-            socket.emit(friend.phone, "hello");
+            // socket.emit(friend.phone, "hello");
             console.log(friend.phone);
+            friends.push(friend.phone);
           });
         }
       });
