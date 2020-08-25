@@ -98,6 +98,7 @@ const chatDeliver = () => {
     small.className = "mymessage";
     if (message !== "") {
       socket.emit("message", message);
+      window.scrollTo(0, document.body.scrollHeight);
       document.querySelector(".messages").append(small);
       document.getElementById("message").value = "";
     }
