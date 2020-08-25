@@ -111,6 +111,7 @@ function readMsg() {
     small.className = "small";
     if (msg !== "") {
       audio.play();
+      window.scrollTo(0, document.body.scrollHeight);
       document.querySelector(".messages").append(small);
     }
   });

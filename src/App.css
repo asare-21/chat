@@ -366,13 +366,14 @@ form.show {
   padding: 10px;
 }
 .messages {
-  height: 100%;
+  height: 85.8%;
   width: 100%;
   padding: 10px;
   overflow-y: scroll;
   scroll-behavior: smooth;
   display: flex;
   flex-direction: column;
+  /* background: red; */
 }
 ::-webkit-scrollbar {
   display: none;
