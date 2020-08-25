@@ -38,7 +38,7 @@ function Chat() {
               <img src="/profile.jpg" alt="profile_pic" />
             </div>
             <div className="message-info">
-              <p>Joseph Asare</p>
+              <p>User</p>
               <small>Hi</small>
             </div>
           </div>
@@ -47,7 +47,7 @@ function Chat() {
               <div className="back" onClick={showConversation}>
                 <IoIosArrowBack />
               </div>
-              <code>Joseph Asare</code>
+              <code>User</code>
             </div>
             <div className="messages">
               {/* <small>Hello,my name is Joseph Asare</small>
